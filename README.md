@@ -73,4 +73,4 @@ Todas as requisições devem ser feitas apontando para a porta do API Gateway (`
 ## 👨‍💻 Autor
 
 **Eduardo Santana** Analista de Sistemas Pleno | Estudante de Ciência da Computação na UnB
-[LinkedIn](https://www.linkedin.com/in/seu-perfil) | [GitHub](https://github.com/seu-usuario)
+[LinkedIn](https://www.linkedin.com/in/eduardodelucca/) | [GitHub](https://github.com/edulucca)
