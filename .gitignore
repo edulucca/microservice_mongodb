@@ -1,0 +1,45 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### Java / Spring Boot ###
+*.class
+*.log
+*.jar
+*.war
+hs_err_pid*
+replay_pid*
+
+### Ambiente e Credenciais ###
+.env
+.env.properties
+.env.*
+application-local.properties
+application-local.yml
+
+### VS Code / Eclipse ###
+.vscode/
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+### Sistema Operacional ###
+.DS_Store
+Thumbs.db

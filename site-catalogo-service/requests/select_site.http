@@ -1,0 +1,11 @@
+### GET request to list all sites
+GET localhost:8080/api/sites
+Accept: application/json
+
+###
+
+### GET request specific site by name
+GET localhost:8080/api/sites/busca?nome=brasil
+Accept: application/json
+
+###
