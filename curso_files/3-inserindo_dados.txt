@@ -1,0 +1,56 @@
+1 - os dados são inseridos com base em modelo JSON.
+
+{
+  "_id": {
+    "$oid": "699238c3713e730b76e5a625"
+  },
+  "name": "Eduardo de Lucca",
+  "email": "eduardo.lucca@email.com",
+  "pass": "123456",
+  "avatar": "",
+  "game": "My Game",
+  "highscore": 0,
+  "money": 0,
+  "hp": 0,
+  "xp": 0,
+  "nivel": 0
+}
+
+1.1 - O id não precisa ser declarado. Caso seja omitido, o banco criar um id automaticamente.
+
+1.2 - Diferente do banco relacional, uma mesma collection pode ter campos diferentes sem causar erros de columns:
+
+{
+  "_id": {
+    "$oid": "699238c3713e730b76e5a625"
+  },
+  "name": "Eduardo de Lucca",
+  "email": "eduardo.lucca@email.com",
+  "pass": "123456",
+  "avatar": "",
+  "game": "My Game",
+  "highscore": 0,
+  "money": 0,
+  "hp": 0,
+  "xp": 0,
+  "nivel": 0
+},
+{
+  "name": "Eduardo de Lucca",
+  "email": "eduardo.lucca@email.com",
+  "highscore": 0,
+  "money": 0,
+  "hp": 0,
+  "xp": 0,
+  "nivel": 0
+}
+
+
+2 - Insert a partir do shell tem dois comandos:
+
+2.1 - Inserir uma linha: db.<collection>.insertOne({})
+db.users.insertOne({"name": "Eduardo de Lucca", "email": "eduardo.lucca@email.com", "highscore": 0, "money": 0, "hp": 0, "xp": 0, "nivel": 0})
+
+2.2 - Inserir várias linhas: db.<collection>.insertMany([{}, {}, ...])
+db.users.insertMany([{"name": "Eduardo de Lucca", "email": "eduardo.lucca@email.com", "highscore": 0, "money": 0, "hp": 0, "xp": 0, "nivel": 0}, {"name": "Eduardo de Lucca", "email": "eduardo.lucca@email.com", "highscore": 0, "money": 0, "hp": 0, "xp": 0, "nivel": 0}])
+

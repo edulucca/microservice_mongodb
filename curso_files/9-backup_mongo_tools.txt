@@ -1,0 +1,32 @@
+Backup de Arquivos com mongodump
+
+O Comando deve criar uma pasta com arquivos referentes ao backup. Pode/Deve ser definidas algumas opções:
+
+1 - Nome do Banco --db
+
+2 - Diretório de saída do backup --out
+
+3 - Definir uma collection especifica para backup --collection
+
+4 - Excluir uma collection especifica do backup --excludeCollection
+
+Exemplos:
+
+mongodump --db=GameControll --out=C:\Users\eduar\OneDrive\Documentos\Estudos\MongoDB
+
+mongodump --collection=users --db=GameControll --out=C:\Users\eduar\OneDrive\Documentos\Estudos\MongoDB
+
+mongodump --db=GameControll --excludeCollection=users --out=C:\Users\eduar\OneDrive\Documentos\Estudos\MongoDB
+
+
+
+
+Para recuperar os dados, use o comando mongorestore. Deve ser indicado os seguintes parâmetros:
+
+1 - Nome do Banco --db
+
+3 - Diretório do backup
+
+Exemplo:
+
+mongorestore --db=GameControll C:\Users\eduar\OneDrive\Documentos\Estudos\MongoDB\GameControll

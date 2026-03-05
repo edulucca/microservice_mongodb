@@ -1,0 +1,17 @@
+Mecanismos de armazenamentos de arquivos
+
+1 - WiredTiger (padrão)
+Compressão de dados
+Controle de concorrência
+Suporte a Transação
+Journaling
+
+Existem outros mecanismos, que em sua maioria estão disponíveis na versão enterprise.
+
+Para alterar qual mecanismo usar: 
+
+1 - o arquivo mongod.cfg define as configurações gerais do banco: C:\Program Files\MongoDB\Server\8.2\bin\mongod.cfg
+
+2 - para alterar o tipo de mecanismo via shell (mongo tools): mongod --storageEngine wiredtiger/inMemory
+
+3 - o arquivo mongod.cfg será alterado

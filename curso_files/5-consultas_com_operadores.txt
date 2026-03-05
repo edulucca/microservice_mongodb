@@ -1,0 +1,47 @@
+Os operadores no MongoDB não usam o padrão matemático: (>, <, >=, <=) 
+
+Segue o seguinte padrão:
+
+== : $eq
+
+!= : $ne
+
+> : $gt
+
+>= : $gte
+
+< : $lt
+
+<= : $lte
+
+IN() : $in
+
+NOT IN() : $nin
+
+Modo de Usar:
+
+1 - Compass: {nivel: {$gte: 10}}
+
+2 - Shell: db.users.find({nivel: {$gte: 10}})
+
+
+
+Operadores Lógicos:
+
+$and
+
+$or
+
+$not
+
+$nor
+
+Modo de Usar:
+
+1 - Compass: {$and:[{nivel:{$gte: 10}}, {game:"My Game"}]}
+
+2 - Shell: db.users.find({$and:[{nivel: {$gte: 10}, game: "My Game"}]})
+
+
+Consulta mais elaborada em Shell:
+db.users.find({$and:[{nivel: {$gte: 10}, game: "My Game"}]}).projection({name:1, nivel:1,game:1, _id:0}).sort({nivel:1})
