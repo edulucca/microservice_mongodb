@@ -1,0 +1,5 @@
+Backup de dados: Import e Export
+
+Basicamente o mesmo processo de fazer o import e export dos dados. É feito no MongoDB Compass, podendo operar em CVS ou JSON.
+
+Em CVS, no processo de import, é possível determinar quais campos adicionar e qual o tipo de cada campo.

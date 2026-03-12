@@ -1,0 +1,10 @@
+1 - Conectar ao shell do mongodb:
+> mongosh
+
+2 - Mostrar bancos de dados
+> show databases
+
+3 - Criar banco de dados
+3.1 - o banco de dados só é possível criar quando é criado junto uma collection
+> use teste2
+> db.createCollection("collection")

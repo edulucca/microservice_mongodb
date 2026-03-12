@@ -1,0 +1,9 @@
+1 - para mostrar as collections:
+1.1 - necessário já está logado no banco de dados
+show collections
+
+2 - deletar uma collection (db.<collection_name>.drop())
+db.collection.drop()
+
+3 - deletar o banco de dados:
+db.dropDatabase()

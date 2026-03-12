@@ -1,0 +1,16 @@
+Deletar Dados
+
+1 - Para deletar apenas um registro basta usar o seguinte comando: db.users.deleteOne({_id:ObjectId('699238c3713e730b76e5a625')})
+	Observação: esse comando elimina apenas uma linha
+
+2 - Para deletar vários registros basta usar o seguinte comando: db.users.deleteMany({_id:ObjectId('699238c3713e730b76e5a625')})
+
+
+Para deletar coleções:
+
+db.users.drop()
+
+
+Para deletar banco de dados:
+
+db.dropDatabase()

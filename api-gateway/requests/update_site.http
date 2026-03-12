@@ -1,0 +1,10 @@
+### PUT request to update already site
+PUT localhost:8080/api/sites/69a0eb52ae7568e6ea54d060
+Content-Type: application/json
+
+{
+  "nome": "Google Brasil",
+  "endereco": "https://www.google.com.br"
+}
+
+###

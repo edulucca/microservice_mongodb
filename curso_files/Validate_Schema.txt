@@ -1,0 +1,79 @@
+Validate Schema
+
+Schema Validation
+Funciona como um contrato com o banco de dados. Define regras que não devem ser desrespeitadas. É sempre executado uma validação para que haja certeza que as regras estão sendo seguidas.
+
+Quando uma collection é criada, a regra pode ser definida.
+Se adicionar uma regra a uma collection já existente, apenas os novos dados passarão para a validação. Os documentos antigos só passarão pela validação caso sejam atualizados (UPDATE)
+
+- Validação de regras
+	- Exemplo: O nome de um usuário pode apenas ser do tipo string.
+	- Pode usar operator query's ou JSONSchema ($jsonSchema)
+	- Sintaxe:
+db.createCollection("sales", {
+    validator: {
+      "$and": [
+        {
+          "$expr": {
+            "$lt": ["$items.discountedPrice", "$items.price"]
+          }
+        },
+        {
+          "$jsonSchema": {
+            "properties": {
+              "items": { "bsonType": "array" }
+            }
+           }
+         }
+       ]
+     }
+   }
+ )
+
+
+- Níveis de Validação
+	-Strict: Aplica regras a todos os documentos inseridos e atualizados
+	-Moderate: Aplica regras a documentos novos e existentes se forem validados
+		- Para encontrar documentos inválidos: db.collection.find({$nor: [validator]})
+
+- Ação de Validação
+	- Quando um document falha na validação é executada uma Ação de Validação
+	
+	- Error (default): Rejeita operações de insert ou update
+	- Warn: Aceita a operação mas registra o log de warn
+
+Exemplo de uso:
+
+const bookstore_reviews_default = {
+    bsonType: "object",
+    required: [“_id”, "review_id", "user_id", "timestamp", "review", "rating"],
+    additionalProperties: false,
+    properties: {
+        _id: { bsonType: "objectId" },
+        review_id: { bsonType: "string" },
+        user_id: { bsonType: "string" },
+        timestamp: { bsonType: "date" },
+        review: { bsonType: "string" },
+        rating: {
+            bsonType: "int",
+            minimum: 0,
+            maximum: 5,
+        },
+        comments: {
+            bsonType: "array",
+            maxItems: 3,
+            items: {
+                bsonType: "object",
+            },
+        },
+    },
+};
+
+const schema_validation = { $jsonSchema: bookstore_reviews_default};
+
+db.runCommand({
+	collMod: "reviews",
+	validator: schema_validation,
+	validationLevel: "strict",
+	validationAction: "error",
+});

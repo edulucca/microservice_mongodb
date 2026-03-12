@@ -1,0 +1,10 @@
+### POST request to insert new site
+POST localhost:8080/api/sites
+Content-Type: application/json
+
+{
+  "nome": "Google",
+  "endereco": "https://www.google.com"
+}
+
+###

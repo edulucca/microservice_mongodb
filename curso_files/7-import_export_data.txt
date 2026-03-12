@@ -1,0 +1,19 @@
+Importa e exportar dados
+
+O Importe e exporte de dados ocorre pela ferramenta MongoDB Compass. Pode ser importado/exportado em JSON ou CSV.
+
+Os dados importados podem ser todos da collection ou de acordo com uma consulta específica. 
+
+O processo de importe e exporte é intuitivo pela ferramenta.
+
+Para executar em shell (ocorre fora do mongosh):
+
+1 - Necessário as ferramentas mongoimport e mongoexport instaladas no CMD
+
+2 - Exemplos:
+	2.1 - Exportar Coleção inteira JSON: mongoexport --db=nome_do_banco --collection=nome_da_colecao --out=arquivo.json
+	2.2 - Exportar especificando em CSV: mongoexport --db=meuBanco --collection=usuarios --type=csv --fields=nome,email --out=usuarios.csv
+	2.3 - Exportar com Query: mongoexport --db=meuBanco --collection=usuarios --query='{"status":"ativo"}' --out=ativos.json
+	2.4 - Exportar para banco de dados Remoto: mongoexport --uri="mongodb+srv://usuario:senha@cluster.mongodb.net/meuBanco" --collection=colecao --out=arquivo.json
+
+3 - O processo de importe é semelhante ao exporte, alterando de mongoexport para mongoimport

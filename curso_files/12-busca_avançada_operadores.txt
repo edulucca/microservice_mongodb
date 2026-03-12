@@ -1,0 +1,26 @@
+Buscas avançadas - Operadores
+
+IN:
+db.movies.find({"genres":{$in:["Drama", "Western"]}})
+
+IN com SELECT campos específicos:
+db.movies.find({"genres":{$in:["Drama", "Western"]}}).projection({"title":1, "plot":1})
+
+MAIOR QUE:
+db.movies.find({"awards.wins":{$gt:200}}).projection({"title":1, "plot":1, "awards":1})
+
+AND:
+db.movies.find({$and:[{"genres":"Drama"}, {"genres":"Wester"}]})
+
+OR:
+db.movies.find({$or:[{"genres":"Drama"}, {"genres":"Wester"}]})
+
+BUSCA POR TEXTO ESPECÍFICO:
+db.movies.find({plot: {$regex: /tycoon/, $options: 'i'}})
+-- obs: "plot" é o campo
+
+BUSCA QUANDO TEXTO ESPECÍFICO NÃO ESTÁ PRESENTE:
+db.movies.find({plot: {$not: /tycoon/i}})
+
+
+Os operadores podem ser encontrados no Doc do MongoDB
